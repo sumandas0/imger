@@ -1,0 +1,26 @@
+# Build Stage
+FROM golang:alpine AS build
+
+# Setting working directory
+WORKDIR ${GOPATH}/src/github.com/RexterR/imger
+
+# Copy source code
+COPY . .
+
+# Build our source to generate an executable file
+RUN go build -o imgerapi ./cmd/imgerapi
+
+# Run Stage
+FROM alpine
+
+# Setting working directory for our applicationn
+WORKDIR /app
+
+# Copy just the binary file from the build stage
+COPY --from=build go/src/github.com/RexterR/imger/imgerapi .
+
+# Expose http port
+EXPOSE 4005
+
+# Run our executable application
+CMD [ "./imgerapi" ]
