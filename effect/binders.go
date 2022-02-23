@@ -2,6 +2,7 @@ package effect
 
 import (
 	"fmt"
+	"image"
 	"image/color"
 	"net/url"
 
@@ -163,4 +164,26 @@ func urlBinder(key string, params map[string]interface{}) (*url.URL, error) {
 	}
 
 	return imgURL, nil
+}
+
+// If it is rectangle then first integerarraybind then return valid rectangle
+func rectangleBinder(key string, params map[string]interface{}) (image.Rectangle, error) {
+	value, err := extractParameter(key, params)
+
+	if err != nil {
+		return image.Rectangle{}, err
+	}
+
+	rectangeCoords, err := integerArrayBinder(key, value, 4)
+
+	if err != nil {
+		return image.Rectangle{}, err
+	}
+
+	rectangle := image.Rectangle{
+		Min: image.Point{X: rectangeCoords[0], Y: rectangeCoords[1]},
+		Max: image.Point{X: rectangeCoords[2], Y: rectangeCoords[3]},
+	}
+
+	return rectangle, nil
 }

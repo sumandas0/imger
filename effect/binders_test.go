@@ -94,3 +94,20 @@ func TestUrlBinderWrongUrl(t *testing.T) {
 		t.Error("Should return an error")
 	}
 }
+func TestRectangleBinder(t *testing.T) {
+	params := map[string]interface{}{"key": []interface{}{1.0, 2.0, 1.0, 2.0}}
+	_, err := rectangleBinder("key", params)
+
+	if err != nil {
+		t.Error("Should return an url", err)
+	}
+}
+
+func TestRectangleBinderWrongRectangle(t *testing.T) {
+	params := map[string]interface{}{"key": []interface{}{1.0, 2.0, 1.0}}
+	_, err := rectangleBinder("key", params)
+
+	if err == nil {
+		t.Error("Should return an error")
+	}
+}
