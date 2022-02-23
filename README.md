@@ -24,7 +24,7 @@ IMGER it's an HTTP service based on Go to process Image with profile store funct
 - Open application: Application Listening on`http:localhost:4005`
 ## Effects
 
-The engine behind image manipulation is the fabulous library: github.com/disintegration/imaging
+The engine behind image manipulation is the fabulous library: [github.com/disintegration/imaging](github.com/disintegration/imaging)<br>
 **Available Effects**
 |Effect Name|Eg Spec 
 |-----------|-------------------------------------------------------------------------|
