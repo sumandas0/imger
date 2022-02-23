@@ -116,3 +116,27 @@ func colorBinder(key string, params map[string]interface{}) (color.Color, error)
 
 	return color, nil
 }
+
+// Check if filter could be binded
+
+func filterBinder(key string, params map[string]interface{}) (imaging.ResampleFilter, error) {
+	value, err := extractParameter(key, params)
+
+	if err != nil {
+		return imaging.ResampleFilter{}, err
+	}
+
+	filterKey, ok := value.(string)
+
+	if !ok {
+		return imaging.ResampleFilter{}, errors.EValidation(fmt.Sprintf("Parameter %s needs to be a string", key), nil)
+	}
+
+	filter, ok := filterMapping[filterKey]
+
+	if !ok {
+		return imaging.ResampleFilter{}, errors.EValidation(fmt.Sprintf("Value %s not supported", filterKey), nil)
+	}
+
+	return filter, nil
+}

@@ -49,3 +49,30 @@ func TestColorBinder(t *testing.T) {
 		t.Error("Should return a color", err)
 	}
 }
+
+func TestColorBinderWrongColor(t *testing.T) {
+	params := map[string]interface{}{"key": "city"}
+	_, err := colorBinder("key", params)
+
+	if !errors.Is(errors.Validation, err) {
+		t.Error("Should be a validation error", err)
+	}
+}
+
+func TestFilterBinder(t *testing.T) {
+	params := map[string]interface{}{"key": "linear"}
+	_, err := filterBinder("key", params)
+
+	if err != nil {
+		t.Error("Should return a filter", err)
+	}
+}
+
+func TestFilterBinderWrongFilter(t *testing.T) {
+	params := map[string]interface{}{"key": "linearus"}
+	_, err := filterBinder("key", params)
+
+	if err == nil {
+		t.Error("Should return an error")
+	}
+}
