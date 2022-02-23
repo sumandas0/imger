@@ -40,8 +40,8 @@ func extractParameter(key string, params map[string]interface{}) (interface{}, e
 //check if integer array is of corect size helper
 
 func integerArrayBinder(key string, array interface{}, expectedLen int) ([]int, error) {
-
 	genericArray, ok := array.([]interface{})
+	fmt.Println(genericArray)
 	intArray := make([]int, 0, expectedLen)
 
 	if !ok || len(genericArray) != expectedLen {
@@ -173,7 +173,6 @@ func rectangleBinder(key string, params map[string]interface{}) (image.Rectangle
 	if err != nil {
 		return image.Rectangle{}, err
 	}
-
 	rectangeCoords, err := integerArrayBinder(key, value, 4)
 
 	if err != nil {

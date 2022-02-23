@@ -77,7 +77,6 @@ func getParameters(srv imger.ProfileService, r *http.Request) (string, []imger.F
 
 func (c *imagesController) transformImage(w http.ResponseWriter, r *http.Request, _ httprouter.Params) appResponse {
 	imgSrc, filters, err := getParameters(c.profileService, r)
-
 	if err != nil {
 		return errResponse(err)
 	}

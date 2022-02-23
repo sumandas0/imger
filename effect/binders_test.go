@@ -95,7 +95,7 @@ func TestUrlBinderWrongUrl(t *testing.T) {
 	}
 }
 func TestRectangleBinder(t *testing.T) {
-	params := map[string]interface{}{"key": []interface{}{1.0, 2.0, 1.0, 2.0}}
+	params := map[string]interface{}{"key": []interface{}{0.0, 0.0, 100.0, 100.0}}
 	_, err := rectangleBinder("key", params)
 
 	if err != nil {
