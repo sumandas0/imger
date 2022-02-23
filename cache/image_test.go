@@ -12,7 +12,7 @@ import (
 func TestImageGet(t *testing.T) {
 	c := NewImage(mock.NewCache())
 
-	url := "http://image2.com/test.png"
+	url := "http://image2.com/test1.png"
 
 	filters := []imger.Filter{
 		imger.Filter{ID: "resize", Parameters: map[string]interface{}{"width": 390, "height": 500}},
