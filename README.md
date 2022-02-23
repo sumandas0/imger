@@ -1,5 +1,5 @@
 # Imger
-[![Go Report Card](https://goreportcard.com/badge/github.com/RexterR/imger)](https://goreportcard.com/report/github.com/RexterR/imger)
+[![Go Report Card](https://goreportcard.com/badge/github.com/RexterR/imger)](https://goreportcard.com/report/github.com/RexterR/imger)<br>
 IMGER it's an HTTP service based on Go to process Image with profile store functionality.
 ### Features
 - Image Processing and Manipulation
