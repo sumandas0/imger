@@ -1,5 +1,10 @@
 package imger
 
+import (
+	"context"
+	"image"
+)
+
 // Parameter contains all properties of a single effect parameter
 type Parameter struct {
 	Description string      `json:"description"`
@@ -17,4 +22,13 @@ type Parameters map[string]Parameter
 type Effect interface {
 	// ID that identifies the effect
 	ID() string
+
+	// Description of the effect
+	Description() string
+
+	// Parameters required for the transform
+	Parameters() Parameters
+
+	// Transform applies the specific transformation to the given image
+	Transform(ctx context.Context, img image.Image, params map[string]interface{}) (image.Image, error)
 }
