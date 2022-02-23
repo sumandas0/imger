@@ -5,6 +5,7 @@ import (
 	"image"
 
 	"github.com/RexterR/imger/imger"
+	"github.com/disintegration/imaging"
 )
 
 type blur struct {
@@ -29,6 +30,14 @@ func NewBlur() imger.Effect {
 	}
 }
 func (r *blur) Transform(ctx context.Context, img image.Image, params map[string]interface{}) (image.Image, error) {
+
+	sigma, err := floatBinder("sigma", params)
+
+	if err != nil {
+		return nil, err
+	}
+
+	img = imaging.Blur(img, sigma)
 
 	return img, ctx.Err()
 }
