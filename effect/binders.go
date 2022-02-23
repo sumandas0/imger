@@ -92,3 +92,27 @@ func floatBinder(key string, params map[string]interface{}) (float64, error) {
 
 	return valueFloat, nil
 }
+
+// Checking if specified color binding is good
+
+func colorBinder(key string, params map[string]interface{}) (color.Color, error) {
+	value, err := extractParameter(key, params)
+
+	if err != nil {
+		return nil, err
+	}
+
+	colorKey, ok := value.(string)
+
+	if !ok {
+		return nil, errors.EValidation(fmt.Sprintf("Parameter %s needs to be a string", key), nil)
+	}
+
+	color, ok := colorMapping[colorKey]
+
+	if !ok {
+		return nil, errors.EValidation(fmt.Sprintf("Value %s not supported", colorKey), nil)
+	}
+
+	return color, nil
+}

@@ -40,3 +40,12 @@ func TestFloatBinderWrongFloat(t *testing.T) {
 		t.Error("Should be a validation error", err)
 	}
 }
+
+func TestColorBinder(t *testing.T) {
+	params := map[string]interface{}{"key": "black"}
+	_, err := colorBinder("key", params)
+
+	if err != nil {
+		t.Error("Should return a color", err)
+	}
+}
