@@ -4,9 +4,9 @@ import (
 	"image"
 	"testing"
 
-	"github.com/RexterR/imger/errors"
 	"github.com/RexterR/imger/imger"
 	"github.com/RexterR/imger/mock"
+	"github.com/RexterR/imger/pkg/errors"
 )
 
 func TestImageGet(t *testing.T) {

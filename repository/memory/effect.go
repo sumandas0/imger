@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/RexterR/imger/effect"
-	"github.com/RexterR/imger/errors"
 	"github.com/RexterR/imger/imger"
+	"github.com/RexterR/imger/pkg/errors"
 )
 
 type effectRepository struct {

@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/RexterR/imger/errors"
 	"github.com/RexterR/imger/imger"
+	"github.com/RexterR/imger/pkg/errors"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"

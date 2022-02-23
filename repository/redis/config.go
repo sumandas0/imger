@@ -1,6 +1,6 @@
 package redis
 
-import "github.com/RexterR/imger/errors"
+import "github.com/RexterR/imger/pkg/errors"
 
 // Configuration for Redis Client
 type Configuration struct {

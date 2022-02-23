@@ -3,8 +3,8 @@ package redis
 import (
 	"time"
 
-	"github.com/RexterR/imger/errors"
 	"github.com/RexterR/imger/imger"
+	"github.com/RexterR/imger/pkg/errors"
 	"github.com/go-redis/redis"
 )
 

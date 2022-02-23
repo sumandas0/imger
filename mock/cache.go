@@ -4,8 +4,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/RexterR/imger/errors"
 	"github.com/RexterR/imger/imger"
+	"github.com/RexterR/imger/pkg/errors"
 )
 
 type mockCache struct {

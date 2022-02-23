@@ -3,7 +3,7 @@ package effect
 import (
 	"testing"
 
-	"github.com/RexterR/imger/errors"
+	"github.com/RexterR/imger/pkg/errors"
 )
 
 func TestIntegerBinder(t *testing.T) {
