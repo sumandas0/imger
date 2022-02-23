@@ -36,7 +36,7 @@ func TestBrightnessTransform(t *testing.T) {
 
 			if tc.err != "" {
 				if err == nil || !errors.Is(tc.err, err) {
-					t.Error("Expected validation error", err)
+					t.Error("Expected validation Error", err)
 				}
 			}
 		})
