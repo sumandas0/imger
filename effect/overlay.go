@@ -13,6 +13,36 @@ type overlay struct {
 	effect
 }
 
+func NewOverlay(imgRepository imger.ImageRepository) imger.Effect {
+	return &overlay{
+		imgRepository: imgRepository,
+		effect: effect{
+			id:          "overlay",
+			description: "Overlay - Overlay image",
+			parameters: imger.Parameters{
+				"position": imger.Parameter{
+					Description: "Position for the overlay image",
+					Required:    true,
+					Example:     "[1,2]",
+					Type:        "array[int]",
+				},
+				"url": imger.Parameter{
+					Description: "Url for overlay image",
+					Required:    true,
+					Example:     "http://image.png",
+					Type:        "string",
+				},
+				"opacity": imger.Parameter{
+					Description: "Opacity for overlay image",
+					Required:    false,
+					Example:     90,
+					Type:        "float",
+					Default:     100,
+				},
+			},
+		},
+	}
+}
 func (o *overlay) Transform(ctx context.Context, img image.Image, params map[string]interface{}) (image.Image, error) {
 	position, err := pointBinder("position", params)
 
