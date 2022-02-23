@@ -187,3 +187,21 @@ func rectangleBinder(key string, params map[string]interface{}) (image.Rectangle
 
 	return rectangle, nil
 }
+
+func pointBinder(key string, params map[string]interface{}) (image.Point, error) {
+	value, err := extractParameter(key, params)
+
+	if err != nil {
+		return image.Point{}, err
+	}
+
+	pointCoords, err := integerArrayBinder(key, value, 2)
+
+	if err != nil {
+		return image.Point{}, err
+	}
+
+	point := image.Point{X: pointCoords[0], Y: pointCoords[1]}
+
+	return point, nil
+}

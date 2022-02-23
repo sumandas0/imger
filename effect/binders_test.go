@@ -111,3 +111,20 @@ func TestRectangleBinderWrongRectangle(t *testing.T) {
 		t.Error("Should return an error")
 	}
 }
+func TestPointBinder(t *testing.T) {
+	params := map[string]interface{}{"key": []interface{}{1.0, 2.0}}
+	_, err := pointBinder("key", params)
+
+	if err != nil {
+		t.Error("Should return a point", err)
+	}
+}
+
+func TestPointBinderWrongPoint(t *testing.T) {
+	params := map[string]interface{}{"key": []interface{}{1.0, 2.0, 1.0}}
+	_, err := pointBinder("key", params)
+
+	if !errors.Is(errors.Validation, err) {
+		t.Error("Should be a validation error", err)
+	}
+}
