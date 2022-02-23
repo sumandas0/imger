@@ -76,3 +76,21 @@ func TestFilterBinderWrongFilter(t *testing.T) {
 		t.Error("Should return an error")
 	}
 }
+
+func TestUrlBinder(t *testing.T) {
+	params := map[string]interface{}{"key": "http://teste.com/image.jpeg"}
+	_, err := urlBinder("key", params)
+
+	if err != nil {
+		t.Error("Should return an url", err)
+	}
+}
+
+func TestUrlBinderWrongUrl(t *testing.T) {
+	params := map[string]interface{}{"key": "fakeurl"}
+	_, err := filterBinder("key", params)
+
+	if err == nil {
+		t.Error("Should return an error")
+	}
+}

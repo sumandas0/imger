@@ -3,6 +3,7 @@ package effect
 import (
 	"fmt"
 	"image/color"
+	"net/url"
 
 	"github.com/RexterR/imger/errors"
 	"github.com/disintegration/imaging"
@@ -139,4 +140,27 @@ func filterBinder(key string, params map[string]interface{}) (imaging.ResampleFi
 	}
 
 	return filter, nil
+}
+
+//In case of image URL check if URL is valid or Not
+func urlBinder(key string, params map[string]interface{}) (*url.URL, error) {
+	value, err := extractParameter(key, params)
+
+	if err != nil {
+		return nil, err
+	}
+
+	urlString, ok := value.(string)
+
+	if !ok {
+		return nil, errors.EValidation(fmt.Sprintf("Parameter %s needs to be a string", key), nil)
+	}
+
+	imgURL, err := url.ParseRequestURI(urlString)
+
+	if err != nil {
+		return nil, errors.EValidation(fmt.Sprintf("Parameter %s needs to be a valid url", key), err)
+	}
+
+	return imgURL, nil
 }
