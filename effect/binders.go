@@ -74,3 +74,21 @@ func integerBinder(key string, params map[string]interface{}) (int, error) {
 
 	return int(valueInt), nil
 }
+
+// If in any field float isa nedeed then use this binder
+
+func floatBinder(key string, params map[string]interface{}) (float64, error) {
+	value, err := extractParameter(key, params)
+
+	if err != nil {
+		return 0, err
+	}
+
+	valueFloat, ok := value.(float64)
+
+	if !ok {
+		return 0, errors.EValidation(fmt.Sprintf("Parameter %s needs to be a float", key), nil)
+	}
+
+	return valueFloat, nil
+}

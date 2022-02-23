@@ -22,3 +22,21 @@ func TestIntegerBinderWrongInteger(t *testing.T) {
 		t.Error("Should be a validation error", err)
 	}
 }
+
+func TestFloatBinder(t *testing.T) {
+	params := map[string]interface{}{"key": 10.5}
+	_, err := floatBinder("key", params)
+
+	if err != nil {
+		t.Error("Should return a float", err)
+	}
+}
+
+func TestFloatBinderWrongFloat(t *testing.T) {
+	params := map[string]interface{}{"key": "Imger"}
+	_, err := floatBinder("key", params)
+
+	if !errors.Is(errors.Validation, err) {
+		t.Error("Should be a validation error", err)
+	}
+}
