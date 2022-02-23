@@ -11,3 +11,11 @@ type effect struct {
 func (e *effect) ID() string {
 	return e.id
 }
+
+func (e *effect) Description() string {
+	return e.description
+}
+
+func (e *effect) Parameters() imger.Parameters {
+	return e.parameters
+}
