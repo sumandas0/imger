@@ -6,7 +6,7 @@ import (
 	"image/color"
 	"net/url"
 
-	"github.com/RexterR/imger/errors"
+	"github.com/RexterR/imger/pkg/errors"
 	"github.com/disintegration/imaging"
 )
 

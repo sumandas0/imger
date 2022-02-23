@@ -5,8 +5,8 @@ import (
 	"image"
 	"testing"
 
-	"github.com/RexterR/imger/errors"
 	"github.com/RexterR/imger/mock"
+	"github.com/RexterR/imger/pkg/errors"
 )
 
 func TestOverlayTransform(t *testing.T) {
