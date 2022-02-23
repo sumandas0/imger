@@ -26,13 +26,14 @@ IMGER it's an HTTP service based on Go to process Image with profile store funct
 
 The engine behind image manipulation is the fabulous library: github.com/disintegration/imaging
 **Available Effects**
-|Effect Name|Eg Spec  |
-|resize|`{"id":"resize","parameters":{"width":25,"height":50,"filter":"linear"}}`|
-| crop |`{"id":"crop","parameters":{"rectangle":[0,0,202,150]}}`  |
-|blur| `{"id":"blur","parameters":{"sigma":0.9}`|
-|brightness| `{"id":"brightness","parameters":{"percentage":-50}}`|
-|contrast|`{"id":"contrast","parameters":{"percentage":100}}`|
-|gamma|`{"id":"gamma","parameters":{"gamma":0.2}}`|
+|Effect Name|Eg Spec 
+|-----------|-------------------------------------------------------------------------|
+|resize     |`{"id":"resize","parameters":{"width":25,"height":50,"filter":"linear"}}`|
+| crop      |`{"id":"crop","parameters":{"rectangle":[0,0,202,150]}}`                 |
+|blur       | `{"id":"blur","parameters":{"sigma":0.9}`                               |
+|brightness | `{"id":"brightness","parameters":{"percentage":-50}}`                   |
+|contrast   |`{"id":"contrast","parameters":{"percentage":100}}`                      |
+|gamma      |`{"id":"gamma","parameters":{"gamma":0.2}}`                              |
 
 It's possible to combine multiple effects:
 ```
