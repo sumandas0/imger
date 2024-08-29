@@ -43,4 +43,4 @@ It's possible to combine multiple effects:
 
 If you don't want to specify filters in URL, you can create a profile with all pre configured filters and then use it in query parameters `&profile={profile-id}`.
 ## HTTP Docs
-[**HTTP Docs**](http.md)
+[**HTTP Docs**](https://github.com/sumandas0/imger/blob/main/HTTP.md)
